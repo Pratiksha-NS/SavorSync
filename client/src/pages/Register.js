@@ -16,7 +16,7 @@ export default function Register() {
       }
 
         try {
-            await axios.post("http://localhost:5000/auth/register", {
+            await axios.post("https://savorsync-backend.onrender.com/auth/register", {
                 username,
                 password
             });
