@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/recipes");
+        const response = await axios.get("https://savorsync-backend.onrender.com/recipes");
 
         setRecipes(response.data);
 
@@ -25,7 +25,7 @@ export default function Home() {
 
     const fetchSavedRecipe = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/recipes/savedRecipes/ids/${userID}`);
+        const response = await axios.get(`https://savorsync-backend.onrender.com/recipes/savedRecipes/ids/${userID}`);
 
         setSavedRecipes(response.data.savedRecipes);
 
@@ -41,7 +41,7 @@ export default function Home() {
   const saveRecipe = async (recipeID) => {
     if(userID){ 
       try {
-      const response = await axios.put("http://localhost:5000/recipes",
+      const response = await axios.put("https://savorsync-backend.onrender.com/recipes",
         {
           recipeID,
           userID
