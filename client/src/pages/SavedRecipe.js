@@ -13,7 +13,7 @@ export default function Home() {
 
     const fetchSavedRecipe = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/recipes/savedRecipes/${userID}`);
+        const response = await axios.get(`https://savorsync-backend.onrender.com/recipes/savedRecipes/${userID}`);
 
         setSavedRecipes(response.data.savedRecipes);
 
@@ -29,12 +29,12 @@ export default function Home() {
   const handleDelete = async (recipeIdToDelete) => {
     try {
       // Make a request to update the user's saved recipes on the server
-      await axios.put(`http://localhost:5000/recipes/removeSavedRecipe/${userID}`, {
+      await axios.put(`https://savorsync-backend.onrender.com/recipes/removeSavedRecipe/${userID}`, {
         recipeID: recipeIdToDelete,
       });
 
       // Fetch the updated list of saved recipes
-      const response = await axios.get(`http://localhost:5000/recipes/savedRecipes/${userID}`);
+      const response = await axios.get(`https://savorsync-backend.onrender.com/recipes/savedRecipes/${userID}`);
       setSavedRecipes(response.data.savedRecipes);
     } catch (err) {
       console.error(err);
